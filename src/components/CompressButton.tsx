@@ -6,9 +6,11 @@ import useJuice from "../hooks/useJuice";
 export default function CompressButton({
   onClick,
   isCompressing,
+  compressTime,
 }: {
   onClick: () => void;
   isCompressing: boolean;
+  compressTime: number;
 }) {
   const juice = useJuice();
   const animationController = useAnimationControls();
@@ -29,17 +31,16 @@ export default function CompressButton({
       rotateZ: 40,
     },
     animate: {
-      rotateZ: [50, 40, 52, 43, 48],
+      rotateZ: [0, 28, 32, 35, 37, 45],
       transition: {
-        duration: 1,
-        repeat: Infinity,
-        repeatType: "reverse",
+        duration: 2,
+        ease: "easeOut",
       },
     },
   };
   useEffect(() => {
     if (isCompressing && juice > 4) {
-      animationController.start("start");
+      animationController.start("animate");
     }
     return () => {
       animationController.start("idle");

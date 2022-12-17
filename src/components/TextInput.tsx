@@ -5,24 +5,29 @@ import useJuice from "../hooks/useJuice";
 export default function TextInput({
   onChange,
   isCompressing,
+  compressTime,
 }: {
   onChange: (value: string) => void;
   isCompressing: boolean;
+  compressTime: number;
 }) {
   const juice = useJuice();
   const controls = useAnimationControls();
 
+  const times = [0.0, 0.25, 0.5, 0.7, 0.85, 1];
+  const scaleY = [1, 1.1, 1.3, 1.4, 1.45, 2];
+  const scaleX = [1, 0.8, 0.65, 0.6, 0.55, 0.05];
+
   useEffect(() => {
     if (juice < 4) {
-      console.log("reset text input rotation");
       controls.start({ rotateZ: 0 });
     } else if (juice > 3 && isCompressing) {
       controls.start(
         {
-          scaleX: [1, 0.3, 1],
-          scaleY: [1, 1, 0.3],
+          scaleX: scaleX,
+          scaleY: scaleY,
         },
-        { repeat: Infinity, repeatType: "reverse", duration: 0.3 }
+        { duration: compressTime, times: times, ease: "easeIn" }
       );
     } else if (!isCompressing) {
       controls.stop();
