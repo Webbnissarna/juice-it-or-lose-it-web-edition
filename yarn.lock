@@ -366,6 +366,18 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
+"@rive-app/canvas@1.0.97":
+  "integrity" "sha512-NpA/z8FW/ktIghJSeZB/ySgG3H+TMhzFC5tnotKuFnxbzhH4qyKk+6FHM7BIjBKhBQ10vHnf45kUrLTRArfQhA=="
+  "resolved" "https://registry.npmjs.org/@rive-app/canvas/-/canvas-1.0.97.tgz"
+  "version" "1.0.97"
+
+"@rive-app/react-canvas@^3.0.34":
+  "integrity" "sha512-UJFmPXKKnx7wUsNN5FADMVqqlV8/iTj8KJ2vs9/tUYLO7UYSpvTGswNEnPELUgDXJl7VWiO9MyikhWk450/4MA=="
+  "resolved" "https://registry.npmjs.org/@rive-app/react-canvas/-/react-canvas-3.0.34.tgz"
+  "version" "3.0.34"
+  dependencies:
+    "@rive-app/canvas" "1.0.97"
+
 "@types/prop-types@*":
   "integrity" "sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w=="
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
@@ -954,7 +966,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.0.tgz"
   "version" "0.14.0"
 
-"react@^18.0.0", "react@^18.2.0":
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
