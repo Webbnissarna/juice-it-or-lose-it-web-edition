@@ -48,10 +48,12 @@ export default function CompressedString({ rawString }: { rawString: string }) {
           animate={{ opacity: 1, width: "100%" }}
           transition={{ duration: 0.5 }}
           className="flex w-full max-w-sm items-center justify-between gap-2"
+          id=""
         >
           <span className="truncate py-4 text-4xl font-bold tracking-[-0.1em]">
             {compressedString}
           </span>
+
           <CopyToClipboardButton compressedString={compressedString} />
         </motion.div>
       );
@@ -65,9 +67,18 @@ export default function CompressedString({ rawString }: { rawString: string }) {
           exit={{ opacity: 0, width: 0 }}
           className="flex w-full max-w-sm items-center justify-between gap-2"
         >
-          <span className="truncate py-4 text-4xl font-bold tracking-[-0.1em]">
-            {compressedString}
-          </span>
+          <div id="compressed string">
+            {compressedString.split("").map((character) => {
+              return (
+                <motion.span
+                  whileHover={{ y: -10 }}
+                  className="inline-block py-4 text-4xl font-bold tracking-[-0.1em]"
+                >
+                  {character}
+                </motion.span>
+              );
+            })}
+          </div>
           <CopyToClipboardButton compressedString={compressedString} />
         </motion.div>
       );
