@@ -67,7 +67,11 @@ export default function CompressedString({ rawString }: { rawString: string }) {
           exit={{ opacity: 0, width: 0 }}
           className="flex w-full max-w-sm items-center justify-between gap-2"
         >
-          <div id="compressed string">
+          <motion.div
+            id="compressed string"
+            className="flex flex-nowrap"
+            exit={{ width: 0, overflowX: "hidden" }}
+          >
             {compressedString.split("").map((character) => {
               return (
                 <motion.span
@@ -78,7 +82,7 @@ export default function CompressedString({ rawString }: { rawString: string }) {
                 </motion.span>
               );
             })}
-          </div>
+          </motion.div>
           <CopyToClipboardButton compressedString={compressedString} />
         </motion.div>
       );
