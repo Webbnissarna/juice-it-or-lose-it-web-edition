@@ -16,11 +16,11 @@ export default function CompressButton({
   const animationController = useAnimationControls();
   const juiceLevels = [
     "",
-    "bg-green-500 p-2 text-green-900",
-    "bg-green-500 p-2 text-green-900 shadow-md font-bold",
-    "bg-green-500 p-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm",
-    "bg-green-500 p-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
-    "rounded-md bg-green-500 p-2 font-bold text-green-900 shadow-md hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
+    "bg-green-500 px-4 py-2 text-green-900",
+    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold",
+    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm",
+    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
+    "rounded-md bg-green-500 px-4 py-2 font-bold text-green-900 shadow-md hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
   ];
 
   const animations: Variants = {

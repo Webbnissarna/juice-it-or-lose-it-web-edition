@@ -11,9 +11,9 @@ export default function JuiceMeter({
     <div className="flex flex-col items-center">
       <label
         htmlFor="juicemeter"
-        className="text-7xl uppercase font-bold text-yellow-300"
+        className="text-7xl font-extrabold uppercase text-yellow-300"
         style={{
-          textShadow: "2px 0 0 red,0 2px 0 red,-2px 0 0 red,0 -2px 0 red",
+          textShadow: "4px 0 0 red,0 4px 0 red,-4px 0 0 red,0 -4px 0 red",
         }}
       >
         Juice meter
@@ -28,7 +28,7 @@ export default function JuiceMeter({
         onChange={(e) => {
           setJuice(e.currentTarget.valueAsNumber);
         }}
-        className="min-w-full h-24"
+        className="h-24 min-w-full"
       />
     </div>
   );

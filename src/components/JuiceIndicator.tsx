@@ -14,14 +14,14 @@ export default function ({ juice }: { juice: number }) {
     case 0:
       return <div>{juice}</div>;
     case 1:
-      return <div className="text-6xl font-extrabold">{juice}</div>;
+      return <div className="text-2xl font-extrabold">{juice}</div>;
     case 2:
       return (
-        <div className="text-6xl font-extrabold">{juices[juice].text}</div>
+        <div className="text-3xl font-extrabold">{juices[juice].text}</div>
       );
     case 3:
       return (
-        <div className={`text-6xl font-extrabold ${juices[juice].color}`}>
+        <div className={`text-4xl font-extrabold ${juices[juice].color}`}>
           {juices[juice].text}
         </div>
       );
@@ -34,12 +34,14 @@ export default function ({ juice }: { juice: number }) {
             animate={"idle"}
             color={juices[juice].color}
             amplification={10}
+            fontSize={"text-5xl"}
           />
           <Text
             text={juices[juice].text}
             animate={"distort1"}
             color={juices[juice].color}
             amplification={10}
+            fontSize={"text-5xl"}
           />
         </div>
       );
@@ -75,12 +77,14 @@ function Text({
   color,
   main,
   amplification,
+  fontSize = "text-6xl",
 }: {
   text: string;
   animate: "idle" | "distort1" | "distort2";
   color: string;
   main?: boolean;
   amplification?: number;
+  fontSize?: string;
 }) {
   const animations = {
     idle: {
@@ -126,7 +130,7 @@ function Text({
       animate={animate}
       className={`${
         main ? "" : "absolute left-0 -z-10"
-      }  text-6xl font-extrabold ${color} whitespace-nowrap`}
+      } ${fontSize} font-extrabold ${color} whitespace-nowrap`}
     >
       {text}
     </motion.span>
