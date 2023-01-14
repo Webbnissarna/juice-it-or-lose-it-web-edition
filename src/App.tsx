@@ -37,7 +37,7 @@ function App() {
     }
   }, [juice]);
 
-  const dropInput = useStateMachineInput(rive, "Machine", "drop");
+  const dropInput = useStateMachineInput(rive, "Machine", "drop", true);
   const textInput = useStateMachineInput(rive, "Machine", "text");
 
   return (
