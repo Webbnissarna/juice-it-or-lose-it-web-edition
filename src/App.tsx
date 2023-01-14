@@ -23,6 +23,20 @@ function App() {
     return () => {};
   }, [rive]);
 
+  useEffect(() => {
+    if (dropInput && textInput) {
+      if (juice > 3) {
+        textInput.value = false;
+      } else if (juice > 1) {
+        dropInput.value = false;
+        textInput.value = true;
+      } else {
+        dropInput.value = true;
+        textInput.value = false;
+      }
+    }
+  }, [juice]);
+
   const dropInput = useStateMachineInput(rive, "Machine", "drop");
   const textInput = useStateMachineInput(rive, "Machine", "text");
 
@@ -40,26 +54,6 @@ function App() {
           setCompressing={setCompressing}
         />
       </div>
-      <button
-        onClick={() => {
-          if (dropInput && textInput) {
-            textInput.value = false;
-            dropInput.value = !dropInput.value;
-          }
-        }}
-      >
-        Drop button
-      </button>
-      <button
-        onClick={() => {
-          if (textInput && dropInput) {
-            dropInput.value = false;
-            textInput.value = !textInput.value;
-          }
-        }}
-      >
-        Text button
-      </button>
     </JuiceProvider>
   );
 }
