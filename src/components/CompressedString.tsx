@@ -58,7 +58,6 @@ export default function CompressedString({ rawString }: { rawString: string }) {
         </motion.div>
       );
     case 4:
-    case 5:
       return (
         <motion.div
           initial={{ opacity: 0, width: 0 }}
@@ -72,18 +71,22 @@ export default function CompressedString({ rawString }: { rawString: string }) {
             className="flex flex-nowrap"
             exit={{ width: 0, overflowX: "hidden" }}
           >
-            {compressedString.split("").map((character) => {
+            {compressedString.split("").map((character, idx) => {
+              // if(idx > )
               return (
                 <motion.span
                   whileHover={{ y: -10 }}
                   className="inline-block py-4 text-4xl font-bold tracking-[-0.1em]"
+                  key={idx}
                 >
                   {character}
                 </motion.span>
               );
             })}
           </motion.div>
-          <CopyToClipboardButton compressedString={compressedString} />
+          {juice > 2 ? (
+            <CopyToClipboardButton compressedString={compressedString} />
+          ) : null}
         </motion.div>
       );
 

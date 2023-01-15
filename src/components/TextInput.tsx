@@ -44,13 +44,15 @@ export default function TextInput({
     "p-2 rounded-md",
     "shadow-md p-2 border-solid rounded-md",
     "shadow-md p-2 border-solid rounded-md",
-    "shadow-md p-2 border-solid rounded-md",
   ];
+
+  const placeholders = ["", "Input here", "", "", "Write for TL;DR"];
+
   return (
     <div className="">
       <motion.input
         type={"text"}
-        placeholder={"Some text"}
+        placeholder={placeholders[juice]}
         className={juiceLevels[juice]}
         onChange={(e) => {
           if (juice > 3 && !isCompressing) {

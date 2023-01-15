@@ -22,13 +22,13 @@ export default function JuiceMeter({
         id={"juicemeter"}
         type="range"
         min={0}
-        max={5}
+        max={4}
         step={1}
         defaultValue={juice}
         onChange={(e) => {
           setJuice(e.currentTarget.valueAsNumber);
         }}
-        className="h-24 min-w-full"
+        className="h-24 min-w-full text-green-700"
       />
     </div>
   );

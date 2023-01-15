@@ -16,11 +16,10 @@ export default function CompressButton({
   const animationController = useAnimationControls();
   const juiceLevels = [
     "",
-    "bg-green-500 px-4 py-2 text-green-900",
-    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold",
-    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm",
-    "bg-green-500 px-4 py-2 text-green-900 shadow-md font-bold hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
-    "rounded-md bg-green-500 px-4 py-2 font-bold text-green-900 shadow-md hover:bg-green-400 active:shadow-sm disabled:bg-green-300 disabled:text-green-500 disabled:shadow-none",
+    "bg-black px-4 py-2 text-white",
+    "bg-black px-4 py-2 text-white shadow-md font-bold",
+    "bg-black px-4 py-2 text-white shadow-md font-bold hover:bg-gray-800 active:shadow-sm",
+    "rounded-md bg-black px-4 py-2 font-bold text-white shadow-md hover:bg-gray-800 active:shadow-sm disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none tracking-wider hover:tracking-tighter w-full",
   ];
 
   const animations: Variants = {
@@ -38,8 +37,9 @@ export default function CompressButton({
       },
     },
   };
+
   useEffect(() => {
-    if (isCompressing && juice > 4) {
+    if (isCompressing && juice === 4) {
       animationController.start("animate");
     }
     return () => {
@@ -53,11 +53,11 @@ export default function CompressButton({
         onClick();
       }}
       disabled={isCompressing}
-      className={juiceLevels[juice] + " origin-top-left"}
+      className={juiceLevels[juice] + " origin-top-left uppercase"}
       variants={animations}
       animate={animationController}
     >
-      {isCompressing ? "compressing" : "Compress string"}
+      {isCompressing ? "compressing" : "Compress"}
     </motion.button>
   );
 }

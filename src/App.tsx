@@ -4,14 +4,15 @@ import JuiceMeter from "./components/JuiceMeter";
 import TextContainer from "./components/TextContainer";
 import JuiceIndicator from "./components/JuiceIndicator";
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
+import FormInformation from "./components/FormInformation";
 
 function App() {
   const [juice, setJuice] = useState(0);
   const [compressing, setCompressing] = useState(false);
 
   const { rive, RiveComponent } = useRive({
-    src: "/juiceitorloseit.riv",
-    artboard: "Juice",
+    src: "/lemon.riv",
+    artboard: "Lemon",
     stateMachines: "Machine",
     autoplay: true,
   });
@@ -23,32 +24,16 @@ function App() {
     return () => {};
   }, [rive]);
 
-  useEffect(() => {
-    if (dropInput && textInput) {
-      if (juice > 3) {
-        textInput.value = false;
-      } else if (juice > 1) {
-        dropInput.value = false;
-        textInput.value = true;
-      } else {
-        dropInput.value = true;
-        textInput.value = false;
-      }
-    }
-  }, [juice]);
-
-  const dropInput = useStateMachineInput(rive, "Machine", "drop", true);
-  const textInput = useStateMachineInput(rive, "Machine", "text");
-
   return (
     <JuiceProvider value={juice}>
       <div className="h-36 w-full">
         {/* <Rive src="public/juiceitorloseit.riv" /> */}
         <RiveComponent />
       </div>
-      <div className="mt-4 flex flex-col items-center gap-4">
+      <div className="mt-4 flex flex-col items-center gap-12">
         <JuiceMeter setJuice={setJuice} />
         <JuiceIndicator juice={juice} />
+        <FormInformation />
         <TextContainer
           compressing={compressing}
           setCompressing={setCompressing}
