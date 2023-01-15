@@ -1,4 +1,4 @@
-import { motion, Transition } from "framer-motion";
+import { motion, Transition, Variants } from "framer-motion";
 
 export default function ({
   juice,
@@ -38,28 +38,40 @@ export default function ({
       );
     case 4:
       return (
-        <div className="relative">
-          <Text
-            main
-            text={juices[juice].text}
-            animate="idle"
-            color={juices[juice].color}
-          />
-          <Text
-            text={juices[juice].text}
-            animate="distort1"
-            color="text-blue-800"
-          />
-          <Text
-            text={juices[juice].text}
-            animate="distort2"
-            color="text-red-800"
-          />
-        </div>
+        <JuiceText text={juices[juice].text} isCompressing={compressing} />
       );
     default:
       return null;
   }
+}
+
+function JuiceText({
+  text,
+  isCompressing,
+}: {
+  text: string;
+  isCompressing: boolean;
+}) {
+  const variants: Variants = {
+    idle: {
+      clipPath: "inset(100% 100% 100% 100%)",
+    },
+    compressed: {
+      clipPath: "inset(0% 100% 100% 100%)",
+    },
+  };
+
+  return (
+    <motion.span
+      variants={variants}
+      initial="idle"
+      // animate="compressed"
+      className={`via bg-gradient-to-t from-red-700 to-transparent bg-clip-text p-2 text-5xl font-extrabold text-transparent`}
+      transition={{ duration: 5 }}
+    >
+      {text}
+    </motion.span>
+  );
 }
 
 function Text({
