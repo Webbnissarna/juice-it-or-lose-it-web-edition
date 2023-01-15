@@ -17,6 +17,8 @@ export default function CompressedString({ rawString }: { rawString: string }) {
     return s;
   }, []);
 
+  const textColor = "text-yellow-500";
+
   switch (juice) {
     case 0:
       return (
@@ -28,14 +30,16 @@ export default function CompressedString({ rawString }: { rawString: string }) {
     case 1:
       return (
         <div className="flex w-full max-w-sm items-center justify-between gap-2">
-          <span className="py-4 text-4xl font-bold">{compressedString}</span>
+          <span className={`py-4 text-4xl font-bold`}>{compressedString}</span>
           <CopyToClipboardButton compressedString={compressedString} />
         </div>
       );
     case 2:
       return (
         <div className="flex w-full max-w-sm items-center justify-between gap-2">
-          <span className="truncate py-4 text-4xl font-bold tracking-[-0.1em]">
+          <span
+            className={`truncate py-4 text-4xl font-bold tracking-[-0.1em] ${textColor}`}
+          >
             {compressedString}
           </span>
           <CopyToClipboardButton compressedString={compressedString} />
@@ -50,7 +54,9 @@ export default function CompressedString({ rawString }: { rawString: string }) {
           className="flex w-full max-w-sm items-center justify-between gap-2"
           id=""
         >
-          <span className="truncate py-4 text-4xl font-bold tracking-[-0.1em]">
+          <span
+            className={`${textColor} truncate py-4 text-4xl font-bold tracking-[-0.1em]`}
+          >
             {compressedString}
           </span>
 
@@ -72,11 +78,24 @@ export default function CompressedString({ rawString }: { rawString: string }) {
             exit={{ width: 0, overflowX: "hidden" }}
           >
             {compressedString.split("").map((character, idx) => {
-              // if(idx > )
+              if (idx > 23) {
+                return null;
+              }
+              if (idx > 20) {
+                return (
+                  <motion.span
+                    whileHover={{ y: -10 }}
+                    className={`${textColor} inline-block py-4 text-4xl font-bold tracking-[-0.1em]`}
+                    key={idx}
+                  >
+                    {"."}
+                  </motion.span>
+                );
+              }
               return (
                 <motion.span
                   whileHover={{ y: -10 }}
-                  className="inline-block py-4 text-4xl font-bold tracking-[-0.1em]"
+                  className={`${textColor} inline-block py-4 text-4xl font-bold tracking-[-0.1em]`}
                   key={idx}
                 >
                   {character}
@@ -102,7 +121,7 @@ function CopyToClipboardButton({
 }) {
   return (
     <button
-      className="h-fit w-fit cursor-pointer rounded-md border border-solid border-gray-800 p-2 hover:bg-gray-300"
+      className="h-fit w-fit cursor-pointer rounded-md border border-solid border-yellow-800 p-2 text-yellow-500 hover:bg-yellow-100"
       onClick={async (e) => {
         try {
           if (!navigator.clipboard) {

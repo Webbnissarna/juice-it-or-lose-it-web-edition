@@ -5,6 +5,8 @@ import TextContainer from "./components/TextContainer";
 import JuiceIndicator from "./components/JuiceIndicator";
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import FormInformation from "./components/FormInformation";
+import BackgroundBoard from "./components/BackgroundBoard";
+import { LayoutGroup } from "framer-motion";
 
 function App() {
   const [juice, setJuice] = useState(0);
@@ -32,12 +34,18 @@ function App() {
       </div>
       <div className="mt-4 flex flex-col items-center gap-12">
         <JuiceMeter setJuice={setJuice} />
-        <JuiceIndicator juice={juice} />
-        <FormInformation />
-        <TextContainer
-          compressing={compressing}
-          setCompressing={setCompressing}
-        />
+        <JuiceIndicator juice={juice} compressing={compressing} />
+        <LayoutGroup>
+          <BackgroundBoard>
+            <>
+              <FormInformation />
+              <TextContainer
+                compressing={compressing}
+                setCompressing={setCompressing}
+              />
+            </>
+          </BackgroundBoard>
+        </LayoutGroup>
       </div>
     </JuiceProvider>
   );

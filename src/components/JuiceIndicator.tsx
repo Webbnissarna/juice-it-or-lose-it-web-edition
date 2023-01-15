@@ -1,6 +1,12 @@
 import { motion, Transition } from "framer-motion";
 
-export default function ({ juice }: { juice: number }) {
+export default function ({
+  juice,
+  compressing,
+}: {
+  juice: number;
+  compressing: boolean;
+}) {
   const juices = [
     { text: "Water", color: "text-white" },
     { text: "Cucumber water", color: "text-blue-400" },
