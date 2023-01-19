@@ -61,13 +61,12 @@ function JuiceText({
     },
   };
 
-  console.log("is compressing", isCompressing);
-
   return (
     <motion.span
       variants={variants}
       initial="idle"
-      animate={isCompressing ? "compress" : "idle"}
+      // animate={isCompressing ? "compress" : "idle"}
+      whileHover={"compress"}
       className={`bg-gradient-to-t from-red-700 to-transparent bg-clip-text p-2 text-5xl font-extrabold text-transparent`}
       transition={{ duration: 5 }}
     >
