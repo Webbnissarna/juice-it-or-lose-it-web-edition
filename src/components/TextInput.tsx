@@ -19,9 +19,9 @@ export default function TextInput({
   const scaleX = [1, 0.8, 0.65, 0.6, 0.55, 0.05];
 
   useEffect(() => {
-    if (juice < 4) {
+    if (juice < 3) {
       controls.start({ rotateZ: 0 });
-    } else if (juice > 3 && isCompressing) {
+    } else if (juice >= 3 && isCompressing) {
       controls.start(
         {
           scaleX: scaleX,
@@ -55,8 +55,8 @@ export default function TextInput({
         placeholder={placeholders[juice]}
         className={juiceLevels[juice]}
         onChange={(e) => {
-          if (juice > 3 && !isCompressing) {
-            controls.start({ rotateZ: Math.random() * juice * 2 - 3 });
+          if (juice >= 3 && !isCompressing) {
+            controls.start({ rotateZ: Math.random() * juice * 3 - 3 });
           }
           onChange(e.currentTarget.value);
         }}

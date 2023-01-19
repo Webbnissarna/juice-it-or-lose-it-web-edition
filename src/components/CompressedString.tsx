@@ -21,18 +21,10 @@ export default function CompressedString({ rawString }: { rawString: string }) {
 
   switch (juice) {
     case 0:
-      return (
-        <div>
-          <span>{compressedString}</span>
-          <CopyToClipboardButton compressedString={compressedString} />
-        </div>
-      );
+      return <span>{compressedString}</span>;
     case 1:
       return (
-        <div className="flex w-full max-w-sm items-center justify-between gap-2">
-          <span className={`py-4 text-4xl font-bold`}>{compressedString}</span>
-          <CopyToClipboardButton compressedString={compressedString} />
-        </div>
+        <span className={`py-4 text-4xl font-bold`}>{compressedString}</span>
       );
     case 2:
       return (
@@ -74,7 +66,7 @@ export default function CompressedString({ rawString }: { rawString: string }) {
         >
           <motion.div
             id="compressed string"
-            className="flex flex-nowrap"
+            className="flex flex-nowrap gap-1"
             exit={{ width: 0, overflowX: "hidden" }}
           >
             {compressedString.split("").map((character, idx) => {

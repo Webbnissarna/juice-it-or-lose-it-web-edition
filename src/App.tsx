@@ -35,17 +35,15 @@ function App() {
       <div className="mt-4 flex flex-col items-center gap-12">
         <JuiceMeter setJuice={setJuice} />
         <JuiceIndicator juice={juice} compressing={compressing} />
-        <LayoutGroup>
-          <BackgroundBoard>
-            <>
-              <FormInformation />
-              <TextContainer
-                compressing={compressing}
-                setCompressing={setCompressing}
-              />
-            </>
-          </BackgroundBoard>
-        </LayoutGroup>
+        <BackgroundBoard>
+          <>
+            <FormInformation />
+            <TextContainer
+              compressing={compressing}
+              setCompressing={setCompressing}
+            />
+          </>
+        </BackgroundBoard>
       </div>
     </JuiceProvider>
   );

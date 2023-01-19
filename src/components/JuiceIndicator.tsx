@@ -54,19 +54,21 @@ function JuiceText({
 }) {
   const variants: Variants = {
     idle: {
-      clipPath: "inset(100% 100% 100% 100%)",
+      clipPath: "inset(0% 0% 0% 0%)",
     },
-    compressed: {
-      clipPath: "inset(0% 100% 100% 100%)",
+    compress: {
+      clipPath: "inset(100% 0% 0% 0%)",
     },
   };
+
+  console.log("is compressing", isCompressing);
 
   return (
     <motion.span
       variants={variants}
       initial="idle"
-      // animate="compressed"
-      className={`via bg-gradient-to-t from-red-700 to-transparent bg-clip-text p-2 text-5xl font-extrabold text-transparent`}
+      animate={isCompressing ? "compress" : "idle"}
+      className={`bg-gradient-to-t from-red-700 to-transparent bg-clip-text p-2 text-5xl font-extrabold text-transparent`}
       transition={{ duration: 5 }}
     >
       {text}

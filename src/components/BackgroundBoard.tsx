@@ -11,10 +11,7 @@ export default function BackgroundBoard({ children }: Props) {
 
   if (juice > 1) {
     return (
-      <motion.div
-        layout
-        className="mx-[-50%] flex min-h-[300px] w-full flex-col items-center gap-12 bg-gray-800 p-8"
-      >
+      <motion.div className="mx-[-50%] flex min-h-[300px] w-full flex-col items-center gap-12 bg-gray-800 p-8">
         {children}
       </motion.div>
     );
