@@ -10,7 +10,7 @@ export default function FormInformation({}: Props) {
     "Enter text",
     "Enter text which you want to compress",
     "Enter text which you want to compress",
-    "Enter text which you want to compress",
+    "Enter the text you want to slice and dice below",
   ];
   const styles = [
     "",
